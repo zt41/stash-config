@@ -1,0 +1,750 @@
+# Stash 懒人配置
+# 规则集: https://github.com/QuixoticHeart/rule-set (ruleset 分支 stash 目录, 每日自动构建)
+# 自定义规则: Emby / EmbyDirect / Nintendo -> https://github.com/zt41/emby-rules
+# 骨架参考: Coldvvater/Mononoke
+# Update Date: 2026-11-03
+
+# 通用设置
+mode: rule
+log-level: info
+
+# DNS模块
+dns:
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+
+# 服务提供商（多个机场就复制一段改名 Subscribe2，并在各地区分组的 use 里加上）
+proxy-providers:
+  Subscribe:
+    url: http://your-service-provider # 用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+
+# 功能分组
+proxy-groups:
+  - name: Final
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    proxies:
+      - Proxy
+      - DIRECT
+  - name: Proxy
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
+    proxies:
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  - name: AdBlock
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: AI
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ChatGPT.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: YouTube
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: NETFLIX
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: Disney+
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: Streaming
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: TikTok
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: bilibili
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
+    proxies:
+      - DIRECT
+      - HongKong
+      - TaiWan
+  - name: Spotify
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  - name: Emby
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  - name: 直连emby
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+    proxies:
+      - DIRECT
+  - name: Nintendo
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  - name: SocialMedia
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: GitHub
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  - name: Apple
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+    proxies:
+      - DIRECT
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: Google
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  - name: Microsoft
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Windows_11.png
+    proxies:
+      - DIRECT
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+  - name: Games
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+    proxies:
+      - Proxy
+      - HongKong
+      - TaiWan
+      - Japan
+      - Singapore
+      - America
+      - AllServer
+      - DIRECT
+  # 基于地区分组
+  - name: HongKong
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+    proxies:
+      - HK-Auto
+      - HK-FallBack
+      - HK-LoadBalance
+    filter: 港|🇭🇰|HK|(?i)Hong
+    use:
+      - Subscribe
+  - name: TaiWan
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+    proxies:
+      - TW-Auto
+      - TW-FallBack
+      - TW-LoadBalance
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    use:
+      - Subscribe
+  - name: Japan
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+    proxies:
+      - JP-Auto
+      - JP-FallBack
+      - JP-LoadBalance
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    use:
+      - Subscribe
+  - name: Singapore
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+    proxies:
+      - SG-Auto
+      - SG-FallBack
+      - SG-LoadBalance
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    use:
+      - Subscribe
+  - name: America
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+    proxies:
+      - US-Auto
+      - US-FallBack
+      - US-LoadBalance
+    filter: 美|🇺🇲|US|(?i)States|American
+    use:
+      - Subscribe
+  - name: AllServer
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
+    proxies:
+      - All-Auto
+    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$
+    use:
+      - Subscribe
+  # 自动测速（隐藏）
+  - name: HK-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: 港|🇭🇰|HK|(?i)Hong
+    interval: 300
+    lazy: true
+  - name: TW-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    interval: 300
+    lazy: true
+  - name: JP-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    interval: 300
+    lazy: true
+  - name: SG-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    interval: 300
+    lazy: true
+  - name: US-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: 美|🇺🇲|US|(?i)States|American
+    interval: 300
+    lazy: true
+  - name: HK-FallBack
+    type: fallback
+    hidden: true
+    include-all: true
+    filter: 港|🇭🇰|HK|(?i)Hong
+    interval: 300
+    lazy: true
+  - name: TW-FallBack
+    type: fallback
+    hidden: true
+    include-all: true
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    interval: 300
+    lazy: true
+  - name: JP-FallBack
+    type: fallback
+    hidden: true
+    include-all: true
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    interval: 300
+    lazy: true
+  - name: SG-FallBack
+    type: fallback
+    hidden: true
+    include-all: true
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    interval: 300
+    lazy: true
+  - name: US-FallBack
+    type: fallback
+    hidden: true
+    include-all: true
+    filter: 美|🇺🇲|US|(?i)States|American
+    interval: 300
+    lazy: true
+  - name: HK-LoadBalance
+    type: load-balance
+    hidden: true
+    include-all: true
+    filter: 港|🇭🇰|HK|(?i)Hong
+    strategy: consistent-hashing
+    interval: 300
+    lazy: true
+  - name: TW-LoadBalance
+    type: load-balance
+    hidden: true
+    include-all: true
+    filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
+    strategy: consistent-hashing
+    interval: 300
+    lazy: true
+  - name: JP-LoadBalance
+    type: load-balance
+    hidden: true
+    include-all: true
+    filter: 日|🇯🇵|东京|JP|(?i)Japan
+    strategy: consistent-hashing
+    interval: 300
+    lazy: true
+  - name: SG-LoadBalance
+    type: load-balance
+    hidden: true
+    include-all: true
+    filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
+    strategy: consistent-hashing
+    interval: 300
+    lazy: true
+  - name: US-LoadBalance
+    type: load-balance
+    hidden: true
+    include-all: true
+    filter: 美|🇺🇲|US|(?i)States|American
+    strategy: consistent-hashing
+    interval: 300
+    lazy: true
+  - name: All-Auto
+    type: url-test
+    hidden: true
+    include-all: true
+    filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$
+    interval: 300
+    lazy: true
+
+# 规则引用（顺序即优先级，越靠上越先匹配）
+rules:
+  # 自定义规则
+  - RULE-SET,private,DIRECT
+  - RULE-SET,EmbyDirect,直连emby
+  - RULE-SET,Emby,Emby
+  - RULE-SET,Nintendo,Nintendo
+  # 广告与屏蔽
+  - RULE-SET,httpdns,REJECT
+  - RULE-SET,adrules,AdBlock
+  # AI 与流媒体
+  - RULE-SET,ai,AI
+  - RULE-SET,youtube,YouTube
+  - RULE-SET,netflix,NETFLIX
+  - RULE-SET,disney,Disney+
+  - RULE-SET,tiktok,TikTok
+  - RULE-SET,douyin,DIRECT
+  - RULE-SET,bilibili,bilibili
+  - RULE-SET,abema,Streaming
+  - RULE-SET,bahamut,Streaming
+  - RULE-SET,hbo,Streaming
+  - RULE-SET,hulu,Streaming
+  - RULE-SET,primevideo,Streaming
+  - RULE-SET,dazn,Streaming
+  - RULE-SET,niconico,Streaming
+  - RULE-SET,twitch,Streaming
+  - RULE-SET,mytvsuper,Streaming
+  - RULE-SET,dmm,Streaming
+  - RULE-SET,spotify,Spotify
+  # 游戏
+  - RULE-SET,games-cn,DIRECT
+  - RULE-SET,games,Games
+  # 社交与论坛
+  - RULE-SET,socialmedia-cn,DIRECT
+  - RULE-SET,socialmedia,SocialMedia
+  - RULE-SET,forum,Proxy
+  # 电商、支付、加密货币、网络电话
+  - RULE-SET,ecommerce,Proxy
+  - RULE-SET,paypal,Proxy
+  - RULE-SET,crypto,Proxy
+  - RULE-SET,talkatone,Proxy
+  # DMCA 敏感流量直连，防止机场审计
+  - RULE-SET,dmca,DIRECT
+  # 开发与平台服务
+  - RULE-SET,gits,GitHub
+  - RULE-SET,apns,DIRECT
+  - RULE-SET,apple-tv,Proxy
+  - RULE-SET,apple-proxy,Proxy
+  - RULE-SET,apple-cn,DIRECT
+  - RULE-SET,apple,Apple
+  - RULE-SET,googlefcm,Google
+  - RULE-SET,google,Google
+  - RULE-SET,onedrive,Microsoft
+  - RULE-SET,microsoft-cn,DIRECT
+  - RULE-SET,microsoft,Microsoft
+  # CDN 与测速直连
+  - RULE-SET,cdn,DIRECT
+  - RULE-SET,speedtest,DIRECT
+  # 兜底代理
+  - RULE-SET,tld-proxy,Proxy
+  - RULE-SET,proxy,Proxy
+  - RULE-SET,gfw,Proxy
+  # 国内直连
+  - RULE-SET,cn,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Final
+
+rule-providers:
+  # 自定义规则集（zt41/emby-rules）
+  Emby:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/zt41/emby-rules/main/Emby.list
+  EmbyDirect:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/zt41/emby-rules/main/EmbyDirect.list
+  Nintendo:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/zt41/emby-rules/main/Nintendo.list
+  # QuixoticHeart/rule-set（ruleset 分支 stash 目录）
+  private:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/private.list
+  httpdns:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/httpdns.list
+  adrules:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/adrules.list
+  ai:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/ai.list
+  youtube:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/youtube.list
+  netflix:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/netflix.list
+  disney:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/disney.list
+  tiktok:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/tiktok.list
+  douyin:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/douyin.list
+  bilibili:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/bilibili.list
+  abema:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/abema.list
+  bahamut:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/bahamut.list
+  hbo:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/hbo.list
+  hulu:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/hulu.list
+  primevideo:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/primevideo.list
+  dazn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/dazn.list
+  niconico:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/niconico.list
+  twitch:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/twitch.list
+  mytvsuper:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/mytvsuper.list
+  dmm:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/dmm.list
+  spotify:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/spotify.list
+  games-cn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/games-cn.list
+  games:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/games.list
+  socialmedia-cn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/socialmedia-cn.list
+  socialmedia:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/socialmedia.list
+  forum:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/forum.list
+  ecommerce:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/ecommerce.list
+  paypal:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/paypal.list
+  crypto:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/crypto.list
+  talkatone:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/talkatone.list
+  dmca:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/dmca.list
+  gits:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/gits.list
+  apns:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/apns.list
+  apple-tv:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/apple-tv.list
+  apple-proxy:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/apple-proxy.list
+  apple-cn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/apple-cn.list
+  apple:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/apple.list
+  googlefcm:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/googlefcm.list
+  google:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/google.list
+  onedrive:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/onedrive.list
+  microsoft-cn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/microsoft-cn.list
+  microsoft:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/microsoft.list
+  cdn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/cdn.list
+  speedtest:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/speedtest.list
+  tld-proxy:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/tld-proxy.list
+  proxy:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/proxy.list
+  gfw:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/gfw.list
+  cn:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/cn.list
+  cncidr:
+    behavior: classical
+    format: text
+    interval: 86400
+    url: https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/stash/cncidr.list
