@@ -21,10 +21,55 @@ dns:
     - "+.lan"
     - "+.local"
 
-# 服务提供商（多个机场就复制一段改名 Subscribe2，并在各地区分组的 use 里加上）
+# 服务提供商（已配置十个订阅位，按需替换 url 即可；更多订阅就复制一段改名 Subscribe11，并在各分组的 use 里加上）
 proxy-providers:
   Subscribe:
-    url: http://your-service-provider # 用你的订阅链接替换
+    url: http://your-service-provider # 订阅链接 1，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe2:
+    url: http://your-service-provider-2 # 订阅链接 2，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe3:
+    url: http://your-service-provider-3 # 订阅链接 3，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe4:
+    url: http://your-service-provider-4 # 订阅链接 4，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe5:
+    url: http://your-service-provider-5 # 订阅链接 5，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe6:
+    url: http://your-service-provider-6 # 订阅链接 6，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe7:
+    url: http://your-service-provider-7 # 订阅链接 7，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe8:
+    url: http://your-service-provider-8 # 订阅链接 8，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe9:
+    url: http://your-service-provider-9 # 订阅链接 9，用你的订阅链接替换
+    interval: 86400
+    benchmark-url: http://www.gstatic.com/generate_204
+    benchmark-timeout: 5
+  Subscribe10:
+    url: http://your-service-provider-10 # 订阅链接 10，用你的订阅链接替换
     interval: 86400
     benchmark-url: http://www.gstatic.com/generate_204
     benchmark-timeout: 5
@@ -45,6 +90,15 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
     filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$
   # 低倍率节点
   - name: 低倍率
@@ -52,6 +106,15 @@ proxy-groups:
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
     filter: (?i)低倍|0\.[0-9]+\s?(x|倍)|low.?rate
   - name: Proxy
     type: select
@@ -299,6 +362,15 @@ proxy-groups:
     filter: 港|🇭🇰|HK|(?i)Hong
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
   - name: TaiWan
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
@@ -309,6 +381,15 @@ proxy-groups:
     filter: 台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
   - name: Japan
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
@@ -319,6 +400,15 @@ proxy-groups:
     filter: 日|🇯🇵|东京|JP|(?i)Japan
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
   - name: Singapore
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
@@ -329,6 +419,15 @@ proxy-groups:
     filter: 新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
   - name: America
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
@@ -339,6 +438,15 @@ proxy-groups:
     filter: 美|🇺🇲|US|(?i)States|American
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
   - name: AllServer
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
@@ -347,6 +455,15 @@ proxy-groups:
     filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$
     use:
       - Subscribe
+      - Subscribe2
+      - Subscribe3
+      - Subscribe4
+      - Subscribe5
+      - Subscribe6
+      - Subscribe7
+      - Subscribe8
+      - Subscribe9
+      - Subscribe10
   # 自动测速（隐藏）
   - name: HK-Auto
     type: url-test
