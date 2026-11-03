@@ -38,6 +38,7 @@ proxy-groups:
       - Proxy
       - DIRECT
       - 手动选择
+      - 低倍率
   # 手动选择（所有节点）
   - name: 手动选择
     type: select
@@ -45,6 +46,13 @@ proxy-groups:
     use:
       - Subscribe
     filter: ^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$
+  # 低倍率节点
+  - name: 低倍率
+    type: select
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Download.png
+    use:
+      - Subscribe
+    filter: (?i)低倍|0\.[0-9]+\s?(x|倍)|low.?rate
   - name: Proxy
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
@@ -56,6 +64,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   - name: AdBlock
     type: select
@@ -74,6 +83,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: YouTube
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
@@ -86,6 +96,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: NETFLIX
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
@@ -98,6 +109,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: Disney+
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney.png
@@ -110,6 +122,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: Streaming
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
@@ -122,6 +135,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: TikTok
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png
@@ -134,6 +148,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: bilibili
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png
@@ -142,6 +157,7 @@ proxy-groups:
       - HongKong
       - TaiWan
       - 手动选择
+      - 低倍率
   - name: Spotify
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
@@ -154,6 +170,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   - name: Emby
     type: select
@@ -167,6 +184,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   - name: 直连emby
     type: select
@@ -185,6 +203,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   - name: SocialMedia
     type: select
@@ -198,6 +217,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: GitHub
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
@@ -210,6 +230,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   - name: Apple
     type: select
@@ -224,6 +245,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: Google
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
@@ -236,6 +258,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   - name: Microsoft
     type: select
@@ -250,6 +273,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
   - name: Games
     type: select
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
@@ -262,6 +286,7 @@ proxy-groups:
       - America
       - AllServer
       - 手动选择
+      - 低倍率
       - DIRECT
   # 基于地区分组
   - name: HongKong
